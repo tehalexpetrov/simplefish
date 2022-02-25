@@ -19,6 +19,7 @@ android {
     buildTypes {
         release {
             minifyEnabled false
+            apply plugin: 'kotlin-android-extensions'
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
