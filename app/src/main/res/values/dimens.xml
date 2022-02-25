@@ -2,4 +2,5 @@
 <resources>
     <dimen name="header">170dp</dimen>
     <dimen name="text_name">20sp</dimen>
+    <dimen name="text_size_imageview">20sp</dimen>
 </resources>
