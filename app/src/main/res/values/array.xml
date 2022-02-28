@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="fish">
+        <item>Щука</item>
+        <item>Налим</item>
+        <item>Сом</item>
+        <item>Карась</item>
+    </string-array>
+    <string-array name="fish_content">
+        <item>Хищная рыба</item>
+        <item>Речная рыба</item>
+        <item>Речная рыба</item>
+        <item>Речная рыба</item>
+    </string-array>
+    <array name="array_image_fish">
+        <item>@drawable/shuca</item>
+        <item>@drawable/nalim</item>
+        <item>@drawable/som</item>
+        <item>@drawable/caras</item>
+    </array>
+</resources>
