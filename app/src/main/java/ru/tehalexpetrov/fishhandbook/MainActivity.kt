@@ -23,19 +23,31 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         nav_view.setNavigationItemSelectedListener(this)
         var list = ArrayList<ListItem>()
 
-        list.addAll(fillArray(resources.getStringArray(R.array.fish),
-            resources.getStringArray(R.array.fish),
-            getImageArray(R.array.array_image_fish)))
+        list.addAll(
+            fillArray(
+                resources.getStringArray(R.array.fish),
+                resources.getStringArray(R.array.fish),
+                getImageArray(R.array.array_image_fish)
+            )
+        )
+
         rcView.hasFixedSize()
         rcView.layoutManager = LinearLayoutManager(this)
-        adapter = MyAdapter(list, this )
+        adapter = MyAdapter(list, this)
         rcView.adapter = adapter
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
 
-        when(item.itemId){
-            R.id.id_fish -> Toast.makeText(this, "Виды рыб", Toast.LENGTH_SHORT).show()
+        when (item.itemId) {
+            R.id.id_fish -> {
+                Toast.makeText(this, "Виды рыб", Toast.LENGTH_SHORT).show()
+                adapter?.updateAdapter(fillArray(
+                    resources.getStringArray(R.array.fish),
+                    resources.getStringArray(R.array.fish),
+                    getImageArray(R.array.array_image_fish)
+                ))
+            }
             R.id.id_na -> Toast.makeText(this, "Виды наживки", Toast.LENGTH_SHORT).show()
             R.id.id_sna -> Toast.makeText(this, "Виды снастей", Toast.LENGTH_SHORT).show()
             R.id.id_history -> Toast.makeText(this, "Истории рыбаков", Toast.LENGTH_SHORT).show()
@@ -43,20 +55,24 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         return true
     }
 
-    fun fillArray(titleArray:Array<String>, contentArray:Array<String>, imageArray: IntArray):List<ListItem>{
-         var listItemArray = ArrayList<ListItem>()
-        for (n in 0 .. titleArray.size - 1){
-            var listItem = ListItem(imageArray[n] ,titleArray[n], contentArray[n])
+    fun fillArray(
+        titleArray: Array<String>,
+        contentArray: Array<String>,
+        imageArray: IntArray
+    ): List<ListItem> {
+        var listItemArray = ArrayList<ListItem>()
+        for (n in 0..titleArray.size - 1) {
+            var listItem = ListItem(imageArray[n], titleArray[n], contentArray[n])
             listItemArray.add(listItem)
         }
         return listItemArray
     }
 
-    fun getImageArray(imageArrayId:Int):IntArray{ //Получаем id картинок из массива для любой категории
+    fun getImageArray(imageArrayId: Int): IntArray { //Получаем id картинок из массива для любой категории
         var tArray: TypedArray = resources.obtainTypedArray(imageArrayId)
         var count = tArray.length()
         val ids = IntArray(count)
-        for (i in ids.indices){
+        for (i in ids.indices) {
             ids[i] = tArray.getResourceId(i, 0)
         }
         tArray.recycle()
