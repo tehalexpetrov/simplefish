@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     fun fillArray(titleArray:Array<String>, contentArray:Array<String>, imageArray: IntArray):List<ListItem>{
          var listItemArray = ArrayList<ListItem>()
-        for (n in 0 .. titleArray.size){
+        for (n in 0 .. titleArray.size - 1){
             var listItem = ListItem(imageArray[n] ,titleArray[n], contentArray[n])
             listItemArray.add(listItem)
         }
