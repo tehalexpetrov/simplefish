@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 Toast.makeText(this, "Виды рыб", Toast.LENGTH_SHORT).show()
                 adapter?.updateAdapter(fillArray(
                     resources.getStringArray(R.array.fish),
-                    resources.getStringArray(R.array.fish),
+                    resources.getStringArray(R.array.fish_content),
                     getImageArray(R.array.array_image_fish)
                 ))
             }
